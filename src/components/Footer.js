@@ -1,9 +1,13 @@
 import React from "react";
+import lemonLogo from '../images/lemon-logo-light.png';
 
 function Footer() {
   return (
     <footer>
-        <h3>Navigation</h3>
+      <div class="small-logo">
+        <img src={lemonLogo} alt="lucky shrub logo" />
+      </div>
+        <p>Navigation</p>
         <ul>
             <li>
                 <a href="/">Home</a>
@@ -24,7 +28,7 @@ function Footer() {
                 <a href="/login.html">Login</a>
             </li>
         </ul>
-      <h3>Contact Us</h3>
+      <p>Contact Us</p>
       <ul>
         <li>
           <a href="tel:555-555-5555">555-555-5555</a>
@@ -38,7 +42,7 @@ function Footer() {
           </a>
         </li>
       </ul>
-      <h3>Social Media Links</h3>
+      <p>Social Media Links</p>
         <ul>
             <li>
                 <a href="https://www.facebook.com">Facebook</a>

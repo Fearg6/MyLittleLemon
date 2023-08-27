@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -14,18 +15,16 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #FBDABB;
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +35,113 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-color: #EDEFEE;
+  color:#EDEFEE;
+  font-family: 'Lato', sans-serif;
+}
+
+main{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.logo{
+  text-align: center;
+}
+.logo > img{
+  width: 20rem;
+  height: auto;
+}
+
+.small-logo > img{
+  width: 7rem;
+  height: auto;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+h3{
+  font-size: 1.5rem;
+}
+
+
+nav {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  background-color:#495457;
+}
+
+nav li {
+  flex: 1;
+  text-align: center;
+}
+
+nav a {
+  display: grid;
+  text-decoration: none;
+  color: #EDEFEE;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+nav a:hover{
+  color: #495457;
+  background-color: #EDEFEE;
+  border-radius: 1rem 1rem;
+}
+
+section{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+article{
+  flex: 1;
+  margin: 1rem;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  background-color:#495457;
+}
+
+article > h2, article > h3{
+  text-align: center;
+}
+
+article > img{
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+
+span{
+  background-color: #0000009b;
+}
+
+
+footer{
+  display: flex;
+  background-color:#495457;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding-top: 1rem;
+}
+
+
+footer > div{
+  flex: 1;
+}
+

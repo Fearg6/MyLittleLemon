@@ -1,9 +1,11 @@
 import React from "react";
+import lemonLogo from '../images/lemon-logo-dark.png';
+
 
 function Header() {
   return (
-    <header>
-      <img src="little_lemon_logo.png" alt="Little Lemon Logo" />
+    <header class="logo">
+      <img src={lemonLogo} alt="Little Lemon Logo" />
     </header>
   );
 }
