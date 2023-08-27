@@ -1,5 +1,5 @@
 import React from "react";
-import lemonLogo from '../images/lemon-logo-dark.png';
+import lemonLogo from '../images/lemon_logo_dark.png';
 
 
 function Header() {

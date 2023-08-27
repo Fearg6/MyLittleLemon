@@ -1,4 +1,11 @@
+/* General Styles */
+body {
+  background-color: #EDEFEE;
+  color: #EDEFEE;
+  font-family: 'Lato', sans-serif;
+}
 
+/* Layout Styles */
 .App {
   text-align: center;
 }
@@ -23,125 +30,160 @@
   font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: #FBDABB;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-body{
-  background-color: #EDEFEE;
-  color:#EDEFEE;
-  font-family: 'Lato', sans-serif;
-}
-
-main{
+main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
 }
 
-.logo{
+/* Logo Styles */
+.logo {
   text-align: center;
 }
-.logo > img{
+.logo > img {
   width: 20rem;
   height: auto;
 }
 
-.small-logo > img{
-  width: 7rem;
+/* .small-logo  {
+  width: 5rem;
   height: auto;
-}
+  padding: 0.5rem;
+} */
 
-h1{
+/* Heading Styles */
+h1 {
   font-size: 3rem;
 }
 
-h2{
+h2 {
   font-size: 2rem;
 }
 
-h3{
+h3 {
   font-size: 1.5rem;
 }
 
-
+/* Navigation Styles */
 nav {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
-
-nav ul{
+nav ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  background-color:#495457;
+  background-color: #495457;
 }
-
 nav li {
   flex: 1;
   text-align: center;
 }
-
 nav a {
   display: grid;
   text-decoration: none;
   color: #EDEFEE;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
-nav a:hover{
+nav a:hover {
   color: #495457;
   background-color: #EDEFEE;
-  border-radius: 1rem 1rem;
+  border-radius: 1rem;
 }
 
-section{
+/* Section Styles */
+section {
   display: flex;
   flex-wrap: wrap;
 }
 
-article{
+/* Article Styles */
+article {
   flex: 1;
   margin: 1rem;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-  background-color:#495457;
+  background-color: #495457;
+  padding-right: 0.1rem;
+  
 }
-
-article > h2, article > h3{
+article > h2, article > h3 {
   text-align: center;
 }
-
-article > img{
+article > p {
+  text-align: justify;
+  padding: 1rem;
+}
+article > img {
   width: 100%;
   height: auto;
-  margin-bottom: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border: #000000 solid 0.01rem;
 }
 
 
-span{
-  background-color: #0000009b;
-}
-
-
-footer{
+/* Footer Styles */
+footer {
   display: flex;
-  background-color:#495457;
+  flex-wrap: wrap;
+  background-color: #495457;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  text-align: center;
   padding-top: 1rem;
 }
-
-
-footer > div{
+footer > div {
   flex: 1;
+  padding: 1rem;
+}
+footer > div > ul {
+  list-style: none;
 }
 
+/* Promotion Styles */
+.promotion {
+  display: flex;
+  align-items: center;
+}
+
+/* Content Styles */
+.content {
+  flex: 1;
+  padding: 1rem;
+}
+.content h1 {
+  font-size: 40px;
+  color: #F4CE14;
+}
+
+/* Image Styles */
+.food-image {
+  max-width: 20%;
+  float: right;
+  border-radius: 1rem;
+}
+
+/* Menu Item Styles */
+.menu-items > article {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+/* New styles for the "This Week's Specials!" heading */
+.specials-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.specials-section h2 {
+  flex: 1;
+  color: #000000;
+}
+
+button{
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
