@@ -8,8 +8,8 @@ function Main() {
   return (
     <main>
       <section>
-        <article class="promotion">
-          <div class="content">
+        <article className="promotion">
+          <div className="content">
             <h1>
               <span>Little Lemon</span>
             </h1>
@@ -25,16 +25,16 @@ function Main() {
               <button>Reserve a Table</button>
             </a>
           </div>
-          <img src={restaurantFood} alt="Lemon Dessert" class="food-image" />
+          <img src={restaurantFood} alt="Lemon Dessert" className="food-image" />
         </article>
       </section>
-      <section class="specials-section">
+      <section className="specials-section">
         <h2>This Week's Specials!</h2>
-        <a href="/online-menu.html" class="online-menu-button">
+        <a href="/online-menu.html" className="online-menu-button">
           <button>Online Menu</button>
         </a>
       </section>
-      <section class="menu-items">
+      <section className="menu-items">
         <article>
           <img src={greekSalad} alt="Greek Salad" />
           <h2>Greek Salad</h2>

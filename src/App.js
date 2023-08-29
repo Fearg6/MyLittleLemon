@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+import BookingPage from "./components/BookingPage";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Header />
       <Nav />
       <Main />
+      <BookingPage/>
       <Footer />
     </>
   );

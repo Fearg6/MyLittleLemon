@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer>
       <div>
-        <img class="small-logo" src={lemonLogo} alt="lucky shrub logo" />
+        <img className="small-logo" src={lemonLogo} alt="lucky shrub logo" />
       </div>
       <div>
         <p>Navigation</p>
