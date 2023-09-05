@@ -13,6 +13,7 @@ const BookingForm = ({
   date,
   setDate,
   availableTimes,
+  dispatch,
   time,
   setTime,
   guests,
@@ -46,14 +47,18 @@ const BookingForm = ({
                 id="date"
                 name="date"
                 type="date"
-                onChange={(e) => setDate(e.target.value)}
+                onChange={(e) => {
+                  setDate(e.target.value);
+                }}
                 value={date}
               />
               <FormLabel htmlFor="res-time">Choose time</FormLabel>
               <Select
                 id="res-time"
                 name="time"
-                onChange={(e) => setTime(e.target.value)}
+                onChange={(e) => {setTime(e.target.value);
+                  dispatch({ type: "UPDATE_TIMES", payload: e.target.value });
+                }}
                 value={time}
               >
                 {availableTimes.map((availableTime) => (

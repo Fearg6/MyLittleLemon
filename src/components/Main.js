@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useReducer } from "react";
 import greekSalad from "../images/greek_salad.jpg";
 import bruchetta from "../images/bruchetta.jpg";
 import lemonDessert from "../images/lemon_desert.jpg";
 import restaurantFood from "../images/restaurant_food.jpg";
+import BookingPage from "./BookingPage";
 
 function Main() {
+  const updateTimes = (state, action) => {
+    return state;
+  };
+
+  const initializeTimes = [
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00",
+  ]
+
+
+  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes);
   return (
     <main>
       <section>
@@ -18,14 +34,18 @@ function Main() {
             </h2>
             <p>
               <span>
-                <b>Chicago’s</b> best Greek food, made from scratch every day.
+                <b>Chicago’s</b> best restaurant for authentic Greek cuisine.
               </span>
             </p>
             <a href="/reservations.html">
               <button>Reserve a Table</button>
             </a>
           </div>
-          <img src={restaurantFood} alt="Lemon Dessert" className="food-image" />
+          <img
+            src={restaurantFood}
+            alt="Lemon Dessert"
+            className="food-image"
+          />
         </article>
       </section>
       <section className="specials-section">
@@ -76,6 +96,10 @@ function Main() {
           </p>
         </article>
       </section>
+      <BookingPage
+        availableTimes={availableTimes}
+        setAvailableTimes={dispatch}
+      />
     </main>
   );
 }
