@@ -3,12 +3,14 @@ import { Helmet } from "react-helmet";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Main from "./components/Main";
+import Menu from "./components/Menu";
 import Footer from "./components/Footer";
-
+import ConfirmedBooking from "./components/ConfirmedBooking";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <Router>
       <Helmet>
         <meta property="og:title" content="Little Lemon" />
         <meta
@@ -20,9 +22,18 @@ function App() {
       </Helmet>
       <Header />
       <Nav />
-      <Main />
+      <Switch>
+        <Route path="/" exact component={Main} />
+        <Route path="/booking.html" exact component={Main} />
+        <Route path="/online-order.html" exact component={Main} />
+        <Route path="/menu.html" exact component={Menu} />
+        <Route path="/reservations.html" exact component={Main} />
+        <Route path="/login.html" exact component={Main} />
+        <Route path="/about.html" exact component={Main} />
+        <Route path="/confirmed-booking.html" exact component={ConfirmedBooking} />
+      </Switch>
       <Footer />
-    </>
+    </Router>
   );
 }
 

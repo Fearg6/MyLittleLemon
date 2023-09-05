@@ -2,11 +2,14 @@ import { render, screen } from "@testing-library/react";
 import App from "./App";
 import Main from "./components/Main";
 
-// test("renders learn react link", () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+// Step 1: Update the test for initializeTimes
+// Now that the initializeTimes function calls the fetchAPI function, the unit tests need to be updated. In fact, if you run the tests now, you will discover that the existing test is failing. For testing purposes, the fetchAPI function will return a non-empty array of available booking times.
+
+// Step 2: Update the test for updateTimes
+// Similar to the previous step, the test you previously created for updateTimes will fail. You will need to update the test to include a pre-selected date as part of the dispatch data.
+
+// Step 3: Run the tests
+// Run all unit tests and verify that they are succeeding.
 
 test("renders the main component", () => {
   render(<Main />);
@@ -15,23 +18,12 @@ test("renders the main component", () => {
 });
 
 test("initializeTimes returns an array of times", () => {
-  const initializeTimes = () => {
-    const times = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-    return times;
-  };
-  expect(initializeTimes()).toEqual([
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-    "22:00",
-  ]);
+  const times = Main.initializeTimes();
+  expect(times).toHaveLength(5);
+});
+test("updateTimes returns an array of times", () => {
+  const times = Main.updateTimes();
+  console.log("times: ",times);
+  expect(times).toHaveLength(5);
 });
 
-test("updateTimes function to validate that it returns the same value that is provided in the state", () => {
-  const updateTimes = (state, action) => {
-    return state;
-  };
-  expect(updateTimes("17:00", )).toEqual("17:00");
-});

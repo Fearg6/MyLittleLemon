@@ -14,15 +14,12 @@ function getTodaysDate() {
   return yyyy + "-" + mm + "-" + dd;
 }
 
-const BookingPage = ({ availableTimes, dispatch }) => {
+const BookingPage = ({ availableTimes, dispatch,submitForm }) => {
   const [date, setDate] = useState(getTodaysDate());
   const [time, setTime] = useState("17:00");
   const [guests, setGuests] = useState("1");
   const [occasion, setOccasion] = useState("birthday");
 
-  const handleSubmit = (formData) => {
-    console.log(formData);
-  };
 
   return (
     <FullScreenSection
@@ -42,7 +39,7 @@ const BookingPage = ({ availableTimes, dispatch }) => {
         setGuests={setGuests}
         occasion={occasion}
         setOccasion={setOccasion}
-        handleSubmit={handleSubmit}
+        submitForm={submitForm}
       />
     </FullScreenSection>
   );
