@@ -42,10 +42,11 @@ const BookingForm = ({
         Booking Form
       </Heading>
       <Box p={6} rounded="md">
-        <form onSubmit={handleFormSubmit}>
+        <form aria-label="Booking Form" onSubmit={handleFormSubmit}>
           <VStack spacing={2}>
             <FormLabel htmlFor="date">Date</FormLabel>
             <Input
+              aria-label="Date"
               id="date"
               name="date"
               type="date"
@@ -59,6 +60,7 @@ const BookingForm = ({
             />
             <FormLabel htmlFor="res-time">Choose time</FormLabel>
             <Select
+              aria-label="Choose time"
               id="res-time"
               name="time"
               onChange={(e) => setTime(e.target.value)}
@@ -72,6 +74,7 @@ const BookingForm = ({
             </Select>
             <FormLabel htmlFor="guests">Number of guests</FormLabel>
             <Input
+              aria-label="Number of guests"
               type="number"
               placeholder="1"
               min="1"
@@ -82,6 +85,7 @@ const BookingForm = ({
             />
             <FormLabel htmlFor="occasion">Occasion</FormLabel>
             <Select
+              aria-label="Occasion"
               id="occasion"
               name="occasion"
               onChange={(e) => setOccasion(e.target.value)}
@@ -90,7 +94,7 @@ const BookingForm = ({
               <option value="birthday">Birthday</option>
               <option value="anniversary">Anniversary</option>
             </Select>
-            <Button mt={4} type="submit">
+            <Button aria-label="On Click" mt={4} type="submit">
               Submit
             </Button>
           </VStack>
