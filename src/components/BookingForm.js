@@ -12,6 +12,8 @@ import {
 const BookingForm = ({
   date,
   setDate,
+  maxDate,
+  minDate,
   availableTimes,
   dispatch,
   time,
@@ -47,6 +49,8 @@ const BookingForm = ({
               id="date"
               name="date"
               type="date"
+              min={minDate}
+              max={maxDate}
               onChange={(e) => {
                 setDate(e.target.value);
                 dispatch({ type: "UPDATE_TIMES", payload: e.target.value });

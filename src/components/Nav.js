@@ -25,9 +25,6 @@ function Nav() {
             <li>
                 <a href="/booking.html">Booking</a>
             </li>
-            <li>
-                <a href="/confirmed-booking.html">Confirmed Booking</a>	
-            </li>
         </ul>
         </nav>
     );

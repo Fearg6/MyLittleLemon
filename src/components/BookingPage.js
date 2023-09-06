@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import BookingForm from "./BookingForm";
 import FullScreenSection from "./FullScreenSection";
 
-function getTodaysDate() {
+function getTodaysDate(offset = 0) {
   const today = new Date();
+  today.setDate(today.getDate() + offset);
   const yyyy = today.getFullYear();
   let mm = today.getMonth() + 1;
   let dd = today.getDate();
@@ -13,6 +14,7 @@ function getTodaysDate() {
 
   return yyyy + "-" + mm + "-" + dd;
 }
+
 
 const BookingPage = ({ availableTimes, dispatch,submitForm }) => {
   const [date, setDate] = useState(getTodaysDate());
@@ -31,6 +33,8 @@ const BookingPage = ({ availableTimes, dispatch,submitForm }) => {
       <BookingForm
         date={date}
         setDate={setDate}
+        minDate={getTodaysDate()}
+        maxDate={getTodaysDate(7)}
         availableTimes={availableTimes}
         dispatch={dispatch}
         time={time}
