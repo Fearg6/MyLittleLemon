@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { fetchData } from "../hooks/localApi";
 import {
   Box,
   Button,
@@ -35,6 +36,15 @@ const BookingForm = ({
     };
     submitForm(formData);
   };
+  useEffect(() => {
+    fetchData(date, dispatch, "onLoad");
+  }, [date, dispatch]);
+
+  useEffect(() => {
+    if (time !== availableTimes[0]) {
+      setTime(availableTimes[0]);
+    }
+  }, [availableTimes, setTime, time]);
 
   return (
     <VStack w="1024px" p={32}>
@@ -54,7 +64,7 @@ const BookingForm = ({
               max={maxDate}
               onChange={(e) => {
                 setDate(e.target.value);
-                dispatch({ type: "UPDATE_TIMES", payload: e.target.value });
+                fetchData(date, dispatch, "onChange");
               }}
               value={date}
             />

@@ -3,23 +3,54 @@
  * submitAPI(formData) - This function accepts the booking form data as a parameter and will return true if the data was successfully submitted.
  */
 
-const fetchData = (date) => {
-  const isWeekend = isWeekendDay(date);
-  const times = isWeekend
-    ? ["18:00", "19:00", "20:00", "21:00", "22:00", "23:00"]
-    : ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-  return times;
+const fetchData = (date, dispatch, text) => {
+  fetch(`https://64fa0ad64098a7f2fc1551b0.mockapi.io/BookingTimes/${date}`, {
+    method: "GET",
+    headers: { "content-type": "application/json" },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(text + " Fetch data: ", data);
+      //Returns availableTimes array
+      const availableTimes = data.availableTimes;
+      console.log(text + " Fetch available Times: ", availableTimes);
+      dispatch({ type: "UPDATE_TIMES", payload: availableTimes });
+
+      return availableTimes;
+    })
+    .catch((error) => {
+      console.log("Error: ", error);
+    });
 };
 
-// Function to check if a given date is a weekend day (Saturday or Sunday)
-const isWeekendDay = (date) => {
-  const d = new Date(date);
-  const dayOfWeek = d.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
-  return dayOfWeek === 0 || dayOfWeek === 6; // Check if it's Sunday (0) or Saturday (6)
-};
+const submitAPI = (formData, availableTimes, dispatch, navigate) => {
+  availableTimes = availableTimes.filter((time) => time !== formData.time);
+  // PUT request get array of data.availableTimes for formData.date and remove formData.time from array
+  fetch(
+    `https://64fa0ad64098a7f2fc1551b0.mockapi.io/BookingTimes/${formData.date}`,
+    {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ availableTimes: availableTimes }),
+    }
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // handle error
+      throw new Error("Request failed!");
+    })
+    .then((task) => {
+      // Do something with updated task
+      task = task.availableTimes;
+      console.log("task: ", task);
+    })
+    .catch((error) => {
+      // handle error
+    });
 
-const submitAPI = (formData) => {
-  return true;
+  dispatch({ type: "UPDATE_TIMES", payload: availableTimes });
+  navigate.push("/confirmed-booking.html");
 };
-
 export { fetchData, submitAPI };

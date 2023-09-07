@@ -4,37 +4,33 @@ import bruchetta from "../images/bruchetta.jpg";
 import lemonDessert from "../images/lemon_desert.jpg";
 import restaurantFood from "../images/restaurant_food.jpg";
 import BookingPage from "./BookingPage";
-import {fetchData , submitAPI} from "../hooks/localApi";
+import { submitAPI } from "../hooks/localApi";
 import { useHistory } from "react-router-dom";
 
 function Main() {
-
   const navigate = useHistory();
 
   const updateTimes = (state, action) => {
     switch (action.type) {
       case "UPDATE_TIMES":
-        return fetchData(action.payload);
+        return action.payload;
       default:
         return state;
     }
   };
 
   const initializeTimes = () => {
-    const today = new Date();
-    const times = fetchData(today);
-    return times;
-  };
-
-  const submitForm = (formData) => {
-    console.log("Date: ",formData.date);
-    const response = submitAPI(formData.date);
-    if(response){
-      navigate.push("/confirmed-booking.html");
-    }
+    return [];
   };
 
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+
+  const submitForm = (formData) => {
+    console.log("formData: ", formData);
+
+    submitAPI(formData, availableTimes, dispatch, navigate);
+  };
+
   return (
     <main>
       <section>

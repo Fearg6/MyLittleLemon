@@ -1,7 +1,11 @@
 /* General Styles */
 body {
   background-color: #EDEFEE;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Karla', sans-serif;
+}
+
+h1, h2, h3{
+  font-family: 'Markazi Text';
 }
 
 /* Layout Styles */
