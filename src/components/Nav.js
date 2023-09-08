@@ -19,12 +19,6 @@ function Nav() {
             Reservations
           </a>
         </li>
-        <li>
-          <a href="/online-order.html">Online Order</a>
-        </li>
-        <li>
-          <a href="/login.html">Login</a>
-        </li>
       </ul>
     </nav>
   );
