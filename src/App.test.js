@@ -34,18 +34,24 @@ test("updateTimes returns state when action type is not UPDATE_TIMES", () => {
 });
 
 test("updateTimes returns new state when action type is UPDATE_TIMES", () => {
-  const isWeekendDay = (date) => {
-    const d = new Date(date);
-    const dayOfWeek = d.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
-    return dayOfWeek === 0 || dayOfWeek === 6; // Check if it's Sunday (0) or Saturday (6)
-  };
+  const fetchData = (date, dispatch, text) => {
+    fetch(`https://64fa0ad64098a7f2fc1551b0.mockapi.io/BookingTimes/${date}`, {
+      method: "GET",
+      headers: { "content-type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(text + " Fetch data: ", data);
+        //Returns availableTimes array
+        const availableTimes = data.availableTimes;
+        console.log(text + " Fetch available Times: ", availableTimes);
+        dispatch({ type: "UPDATE_TIMES", payload: availableTimes });
 
-  const fetchData = (date) => {
-    const isWeekend = isWeekendDay(date);
-    const times = isWeekend
-      ? ["18:00", "19:00", "20:00", "21:00", "22:00", "23:00"]
-      : ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-    return times;
+        return availableTimes;
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
   };
 
   const updateTimes = (state, action) => {
@@ -58,9 +64,17 @@ test("updateTimes returns new state when action type is UPDATE_TIMES", () => {
   };
 
   const initialState = ["10:00", "11:00", "12:00"];
-  const action = { type: "UPDATE_TIMES", payload: new Date() };
+  const action = { type: "UPDATE_TIMES", payload: "2021-01-01" };
   const newState = updateTimes(initialState, action);
   expect(newState).not.toEqual(initialState);
 });
 
+test("initializeTimes returns empty array", () => {
+  const initializeTimes = () => {
+    return [];
+  };
+
+  const newState = initializeTimes();
+  expect(newState).toEqual([]);
+} );
 
