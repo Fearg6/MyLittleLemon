@@ -6,6 +6,7 @@ import restaurantFood from "../images/restaurant_food.jpg";
 import BookingPage from "./BookingPage";
 import { submitAPI } from "../hooks/localApi";
 import { useHistory } from "react-router-dom";
+import handleClick from "../components/handleClick";
 
 function Main() {
   const navigate = useHistory();
@@ -47,7 +48,7 @@ function Main() {
                 <b>Chicago’s</b> best restaurant for authentic Greek cuisine.
               </span>
             </p>
-            <a href="/reservations.html">
+            <a href="#booking-page" onClick={handleClick("booking-page")}>
               <button>Reserve a Table</button>
             </a>
           </div>
@@ -60,7 +61,7 @@ function Main() {
       </section>
       <section className="specials-section">
         <h2>This Week's Specials!</h2>
-        <a href="/online-menu.html" className="online-menu-button">
+        <a href="/menu.html" className="online-menu-button">
           <button>Online Menu</button>
         </a>
       </section>

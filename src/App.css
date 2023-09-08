@@ -7,6 +7,13 @@ body {
 h1, h2, h3{
   font-family: 'Markazi Text';
 }
+article > h1{
+  text-align: center;
+}
+
+article > h2, article > h3 {
+  color: #F4CE14;
+}
 
 /* Layout Styles */
 .App {

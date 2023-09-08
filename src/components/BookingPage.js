@@ -24,6 +24,7 @@ const BookingPage = ({ availableTimes, dispatch,submitForm }) => {
 
 
   return (
+    <div id = "booking-page-section">
     <FullScreenSection
       isDarkBackground
       backgroundColor="#495457"
@@ -46,6 +47,7 @@ const BookingPage = ({ availableTimes, dispatch,submitForm }) => {
         submitForm={submitForm}
       />
     </FullScreenSection>
+    </div>
   );
 };
 

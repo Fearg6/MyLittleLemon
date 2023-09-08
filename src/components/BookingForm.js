@@ -41,10 +41,8 @@ const BookingForm = ({
   }, [date, dispatch]);
 
   useEffect(() => {
-    if (time !== availableTimes[0]) {
-      setTime(availableTimes[0]);
-    }
-  }, [availableTimes, setTime, time]);
+    setTime(availableTimes[0]);
+  }, [availableTimes, setTime]);
 
   return (
     <VStack w="1024px" p={32}>
@@ -64,7 +62,6 @@ const BookingForm = ({
               max={maxDate}
               onChange={(e) => {
                 setDate(e.target.value);
-                fetchData(date, dispatch, "onChange");
               }}
               value={date}
             />
